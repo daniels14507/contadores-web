@@ -7,11 +7,13 @@ body {
 /* HEADER */
 
 .header {
-  line-height: 0;
   background-color: #0d3b66;
-  color: white;
-  padding: 10px;
+  height: 120px;          /* Altura fija de la barra */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .logo-container {
   display: flex;
@@ -20,8 +22,10 @@ body {
 }
 
 .logo {
-  width: 200px;
+  height: 90px;
+  width: auto;
 }
+
 
 /* NAV */
 
@@ -94,6 +98,7 @@ footer {
   color: white;
   padding: 20px;
 }
+
 
 
 
