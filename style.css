@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 200px;
+  gap: 20px;
 }
 
 .logo {
@@ -94,6 +94,7 @@ footer {
   color: white;
   padding: 20px;
 }
+
 
 
 
