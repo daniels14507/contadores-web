@@ -9,18 +9,17 @@ body {
 .header {
   background-color: #0d3b66;
   color: white;
-  padding: 20px;
+  padding: 30px;
 }
 
 .logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
 
 .logo {
-  width: 150px;
+  width: 200px;
 }
 
 /* NAV */
@@ -94,6 +93,7 @@ footer {
   color: white;
   padding: 20px;
 }
+
 
 
 
