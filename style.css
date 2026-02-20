@@ -8,7 +8,7 @@ body {
 
 .header {
   background-color: #0d3b66;
-  height: 120px;          /* Altura fija de la barra */
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +22,7 @@ body {
 }
 
 .logo {
-  height: 120px;
-  width: auto;
+  height: 70px;
 }
 
 
@@ -97,6 +96,56 @@ footer {
   background-color: #0d3b66;
   color: white;
   padding: 20px;
+}
+
+/* HERO SECTION */
+
+.hero {
+  background: linear-gradient(rgba(13,59,102,0.85), rgba(13,59,102,0.85)),
+              url('https://images.unsplash.com/photo-1556761175-b413da4baf72');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+}
+
+/* BOTONES HERO */
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background-color: white;
+  color: #0d3b66;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background-color: #25D366;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 
