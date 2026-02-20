@@ -30,7 +30,9 @@
 }
 
 .hero-content {
-  max-width: 600px;
+  text-align: center;
+  color: white;
+  max-width: 700px;
 }
 
 .hero h1 {
@@ -78,6 +80,7 @@
 .btn-secondary:hover {
   background-color: #1ebe5d;
 }
+
 
 
 
