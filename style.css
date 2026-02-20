@@ -9,7 +9,7 @@
 .logo {
   .logo {
   height: 50px;   
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 }
 
@@ -78,6 +78,7 @@
 .btn-secondary:hover {
   background-color: #1ebe5d;
 }
+
 
 
 
