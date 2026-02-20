@@ -18,7 +18,10 @@
 }
 
 .logo {
-  height: 90px;
+  position: absolute;
+  top: 30px;
+  left: 60px;
+  height: 80px;
 }
 
 /* HERO SECTION */
@@ -86,3 +89,4 @@
 .btn-secondary:hover {
   background-color: #1ebe5d;
 }
+
