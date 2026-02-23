@@ -14,7 +14,7 @@
 /* HERO SECTION */
 .hero {
   position: relative;
-  min-height: 65vh;   /* más corto para que se vea la curva */
+  min-height: 60vh;   /* más corto para que se vea la curva */
   padding: 80px 80px 160px 80px; /* poco arriba, mucho abajo */
   background: linear-gradient(rgba(13,59,102,0.85), rgba(13,59,102,0.85)),
               url("./img/oficina.jpg");
@@ -32,14 +32,14 @@
   bottom: -1px;
   left: 0;
   width: 100%;
-  height: 120px;   /* más grande */
+  height: 140px;   /* más grande */
   background: white;
   border-top-left-radius: 100% 60px;
   border-top-right-radius: 100% 60px;
 }
 .hero-content {
   max-width: 600px;
-  margin-top: 20px;
+  margin-top: -40px;
 }
 
 .hero h1 {
@@ -96,6 +96,7 @@
   padding: 80px 20px;
   text-align: center;
 }
+
 
 
 
