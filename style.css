@@ -103,12 +103,75 @@ section {
 }
 
 
+
 .services {
-  background: white;
-  padding: 40px 20px;
+  background: #f4f6f9;
+  padding: 100px 80px;
   text-align: center;
-  margin-top: -40px;
 }
+
+.services h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #0d3b66;
+}
+
+.services-subtitle {
+  margin-bottom: 50px;
+  color: #555;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.service-card h3 {
+  margin-bottom: 15px;
+  color: #0d3b66;
+}
+
+.service-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.service-card ul li {
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.btn-service {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.btn-service:hover {
+  background: #1ebe5d;
+}
+
 
 
 
