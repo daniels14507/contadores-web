@@ -102,7 +102,7 @@ section {
   padding-bottom: 60px;
 }
 
-
+/***************************************************************************************************************************/
 
 .services {
   background: #ffffff;
@@ -185,6 +185,63 @@ section {
   background: #1ebe5d;
 }
 
+/*************************************************************************************************************************/
+
+.about {
+  padding: 100px 80px;
+  background: white;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-tag {
+  color: #0d3b66;
+  font-weight: 600;
+  position: relative;
+  padding-left: 40px;
+}
+
+.about-tag::before {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background: #0d3b66;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.about-content h2 {
+  font-size: 32px;
+  margin: 15px 0;
+  color: #222;
+}
+
+.about-content h3 {
+  margin-top: 20px;
+  color: #0d3b66;
+}
+
+.about-divider {
+  height: 1px;
+  background: #ddd;
+  margin: 20px 0;
+}
 
 
 
