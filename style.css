@@ -14,7 +14,7 @@
 /* HERO SECTION */
 .hero {
   position: relative;
-  min-height: 55vh;   /* más corto para que se vea la curva */
+  min-height: 20vh;   /* más corto para que se vea la curva */
   padding: 60px 80px 90px 80px; /* poco arriba, mucho abajo */
   background: linear-gradient(rgba(13,59,102,0.85), rgba(13,59,102,0.85)),
               url("https://images.unsplash.com/photo-1492724441997-5dc865305da7");
@@ -171,6 +171,7 @@ section {
 .btn-service:hover {
   background: #1ebe5d;
 }
+
 
 
 
