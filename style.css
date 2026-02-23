@@ -408,15 +408,12 @@ section {
 
 /*************************************************************************************************************************/
 
-@media (max-width: 900px) {
-  .why-container {
-    flex-direction: column;
-  }
-
-  .about-container {
-    flex-direction: column;
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
   }
 }
+
 
 
 
