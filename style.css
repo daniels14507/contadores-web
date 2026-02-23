@@ -128,7 +128,7 @@ section {
 }
 
 .service-card {
-  background: white;
+  background: #d0d0d0;
   padding: 30px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -171,6 +171,7 @@ section {
 .btn-service:hover {
   background: #1ebe5d;
 }
+
 
 
 
