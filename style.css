@@ -105,8 +105,8 @@ section {
 
 
 .services {
-  background: #f4f6f9;
-  padding: 20px 40px;
+  background: #ffffff;
+  padding: 10px 80px;
   text-align: center;
 }
 
@@ -171,6 +171,7 @@ section {
 .btn-service:hover {
   background: #1ebe5d;
 }
+
 
 
 
