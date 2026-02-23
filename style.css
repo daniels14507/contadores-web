@@ -243,8 +243,86 @@ section {
   margin: 20px 0;
 }
 
+/************************************************************************************************************/
 
+.why-us {
+  padding: 100px 80px;
+  background: #f4f6f9;
+}
 
+.why-container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.why-content {
+  flex: 1;
+}
+
+.why-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+}
+
+.why-tag {
+  color: #0d3b66;
+  font-weight: 600;
+  position: relative;
+  padding-left: 40px;
+}
+
+.why-tag::before {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background: #0d3b66;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+
+.why-content h2 {
+  font-size: 32px;
+  margin: 15px 0;
+  color: #222;
+}
+
+.why-features {
+  margin-top: 30px;
+}
+
+.why-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  align-items: flex-start;
+}
+
+.why-item i {
+  font-size: 22px;
+  color: #0d3b66;
+  margin-top: 5px;
+}
+
+.why-item h4 {
+  margin-bottom: 5px;
+  color: #0d3b66;
+}
+
+/*************************************************************************************************************************/
+
+@media (max-width: 900px) {
+  .why-container {
+    flex-direction: column;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+}
 
 
 
