@@ -17,7 +17,7 @@
   min-height: 0vh;   /* más corto para que se vea la curva */
   padding: 60px 80px 60px 80px; /* poco arriba, mucho abajo */
   background: linear-gradient(rgba(13,59,102,0.85), rgba(13,59,102,0.85)),
-              url("https://blog.nubox.com/contadores/tipos-de-contabilidad");
+              url(".img/oficina.png");
   background-size: cover;
   background-position: center;
   color: white;
@@ -171,6 +171,7 @@ section {
 .btn-service:hover {
   background: #1ebe5d;
 }
+
 
 
 
