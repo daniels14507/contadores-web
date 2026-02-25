@@ -386,9 +386,50 @@ function showMessage() {
   }, 800);
 }
 </script>
+
+  <script>
+function calculateQuote() {
+  let service = document.getElementById("service").value;
+  let clientType = document.getElementById("clientType").value;
+  let firstTime = document.getElementById("firstTime").value;
+  let income = parseFloat(document.getElementById("income").value) || 0;
+
+  let total = 0;
+
+  if(service === "renta") {
+    total = 120;
+    if(clientType === "juridica") total += 80;
+    if(firstTime === "si") total += 30;
+    if(income > 50000) total += 50;
+  }
+
+  if(service === "ruc") {
+    total = 90;
+  }
+
+  if(service === "empresa") {
+    total = 650;
+  }
+
+  if(service === "aviso") {
+    total = 150;
+  }
+
+  if(service === "contabilidad") {
+    total = 200;
+  }
+
+  if(service === "legal") {
+    total = 180;
+  }
+
+  document.getElementById("result").innerText = "$" + total.toFixed(2);
+}
+</script>
   
 </body>
 </html>
+
 
 
 
