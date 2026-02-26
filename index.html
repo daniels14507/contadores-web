@@ -287,11 +287,13 @@
 
       </div>
 
-      <button type="button" onclick="calculateQuote()">Calcular Cotización</button>
-
       <div class="result-box">
         <h3>Cotización Aproximada</h3>
         <p id="result">$0.00</p>
+
+        <a id="whatsappBtn" target="_blank" class="btn-whatsapp">
+          Solicitar por WhatsApp
+        </a>
       </div>
 
     </form>
@@ -388,97 +390,115 @@ function showMessage() {
 </script>
 
 <script>
+document.addEventListener("DOMContentLoaded", function() {
 
-const serviceSelect = document.getElementById("service");
-const extraOptions = document.getElementById("extraOptions");
-const clientTypeGroup = document.getElementById("clientType").parentElement;
-const firstTimeGroup = document.getElementById("firstTime").parentElement;
-const incomeGroup = document.getElementById("income").parentElement;
+  const serviceSelect = document.getElementById("service");
+  const clientType = document.getElementById("clientType");
+  const firstTime = document.getElementById("firstTime");
+  const income = document.getElementById("income");
 
-serviceSelect.addEventListener("change", toggleFields);
+  const clientTypeGroup = clientType.parentElement;
+  const firstTimeGroup = firstTime.parentElement;
+  const incomeGroup = income.parentElement;
 
-function toggleFields() {
-  let service = serviceSelect.value;
+  const resultElement = document.getElementById("result");
+  const whatsappBtn = document.getElementById("whatsappBtn");
 
-  // Mostrar todo por defecto
-  clientTypeGroup.style.display = "block";
-  firstTimeGroup.style.display = "block";
-  incomeGroup.style.display = "block";
+  const phoneNumber = "50766557784";
 
-  if(service === "ruc") {
-    clientTypeGroup.style.display = "none";
-    firstTimeGroup.style.display = "none";
-    incomeGroup.style.display = "none";
+  function toggleFields() {
+    let service = serviceSelect.value;
+
+    clientTypeGroup.style.display = "block";
+    firstTimeGroup.style.display = "block";
+    incomeGroup.style.display = "block";
+
+    if(service === "ruc") {
+      clientTypeGroup.style.display = "none";
+      firstTimeGroup.style.display = "none";
+      incomeGroup.style.display = "none";
+    }
+
+    if(service === "aviso" || service === "empresa" || service === "contabilidad" || service === "legal") {
+      firstTimeGroup.style.display = "none";
+      incomeGroup.style.display = "none";
+    }
   }
 
-  if(service === "aviso") {
-    firstTimeGroup.style.display = "none";
-    incomeGroup.style.display = "none";
+  function calculateQuote() {
+    let service = serviceSelect.value;
+    let type = clientType.value;
+    let first = firstTime.value;
+    let annualIncome = parseFloat(income.value) || 0;
+
+    let total = 0;
+    let serviceName = "";
+
+    if(service === "renta") {
+      serviceName = "Declaración de Renta";
+      total = 120;
+      if(type === "juridica") total += 80;
+      if(first === "si") total += 30;
+      if(annualIncome > 50000) total += 50;
+    }
+
+    if(service === "ruc") {
+      serviceName = "Inscripción de RUC";
+      total = 90;
+    }
+
+    if(service === "empresa") {
+      serviceName = "Constitución de Empresa";
+      total = 650;
+      if(type === "juridica") total += 150;
+    }
+
+    if(service === "aviso") {
+      serviceName = "Aviso de Operación";
+      total = 150;
+    }
+
+    if(service === "contabilidad") {
+      serviceName = "Contabilidad Mensual";
+      total = 200;
+      if(type === "juridica") total += 100;
+    }
+
+    if(service === "legal") {
+      serviceName = "Asesoría Legal Corporativa";
+      total = 180;
+    }
+
+    resultElement.classList.remove("active");
+
+    setTimeout(() => {
+      resultElement.innerText = "$" + total.toFixed(2);
+      resultElement.classList.add("active");
+    }, 150);
+
+    let message = `Hola, quiero solicitar el servicio de ${serviceName}. La cotización aproximada es $${total.toFixed(2)}.`;
+    let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    whatsappBtn.href = url;
   }
 
-  if(service === "empresa") {
-    firstTimeGroup.style.display = "none";
-    incomeGroup.style.display = "none";
-  }
+  serviceSelect.addEventListener("change", () => {
+    toggleFields();
+    calculateQuote();
+  });
 
-  if(service === "contabilidad") {
-    firstTimeGroup.style.display = "none";
-    incomeGroup.style.display = "none";
-  }
+  clientType.addEventListener("change", calculateQuote);
+  firstTime.addEventListener("change", calculateQuote);
+  income.addEventListener("input", calculateQuote);
 
-  if(service === "legal") {
-    firstTimeGroup.style.display = "none";
-    incomeGroup.style.display = "none";
-  }
-}
+  toggleFields();
+  calculateQuote();
 
-function calculateQuote() {
-  let service = document.getElementById("service").value;
-  let clientType = document.getElementById("clientType").value;
-  let firstTime = document.getElementById("firstTime").value;
-  let income = parseFloat(document.getElementById("income").value) || 0;
-
-  let total = 0;
-
-  if(service === "renta") {
-    total = 120;
-    if(clientType === "juridica") total += 80;
-    if(firstTime === "si") total += 30;
-    if(income > 50000) total += 50;
-  }
-
-  if(service === "ruc") {
-    total = 90;
-  }
-
-  if(service === "empresa") {
-    total = 650;
-    if(clientType === "juridica") total += 150;
-  }
-
-  if(service === "aviso") {
-    total = 150;
-  }
-
-  if(service === "contabilidad") {
-    total = 200;
-    if(clientType === "juridica") total += 100;
-  }
-
-  if(service === "legal") {
-    total = 180;
-  }
-
-  document.getElementById("result").innerText = "$" + total.toFixed(2);
-}
-
-// Ejecutar al cargar la página
-toggleFields();
-
+});
 </script>
   
 </body>
 </html>
+
 
 
 
