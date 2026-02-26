@@ -353,23 +353,58 @@
 
       <!-- FORMULARIO -->
       <div class="footer-column">
-        <h3>Envíanos un mensaje</h3>
+        
+<h3>Cotización Rápida</h3>
 
-        <form class="contact-form" action="https://formsubmit.co/4ddcdc7a925d30ba9af685f1d99c7d08" method="POST" target="hidden_iframe" onsubmit="showMessage()">
-         <input type="hidden" name="_captcha" value="false">
-         <input type="hidden" name="_next" value="">
-          <input type="text" name="nombre" placeholder="Nombre completo" required>
-          <input type="email" name="email" placeholder="Correo electrónico" required>
-          <textarea name="mensaje" rows="4" placeholder="Escribe tu mensaje..." required></textarea>
+<div class="footer-quote">
 
-          <button type="submit">Enviar Mensaje</button>
-          
-        </form>
-        <iframe name="hidden_iframe" style="display:none;"></iframe>
-        <p id="success-message" style="display:none; color:#25D366; margin-top:10px;">
-  ✅ Mensaje enviado correctamente.
-</p>
+  <div class="form-group">
+    <label>Servicio</label>
+    <select id="service">
+      <option value="renta">Declaración de Renta</option>
+      <option value="ruc">Inscripción de RUC</option>
+      <option value="empresa">Constitución de Empresa</option>
+      <option value="aviso">Aviso de Operación</option>
+      <option value="contabilidad">Contabilidad Mensual</option>
+      <option value="legal">Asesoría Legal Corporativa</option>
+    </select>
+  </div>
 
+  <div class="form-group">
+    <label>Tipo de Cliente</label>
+    <select id="clientType">
+      <option value="natural">Persona Natural</option>
+      <option value="juridica">Persona Jurídica</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>¿Es primera vez?</label>
+    <select id="firstTime">
+      <option value="no">Recurrente</option>
+      <option value="si">Primera vez</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Ingresos Anuales ($)</label>
+    <input type="number" id="income" placeholder="Ej: 15000">
+  </div>
+
+  <div class="result-box">
+    <h4>Cotización</h4>
+    <p id="result">$0.00</p>
+    <a id="whatsappBtn" target="_blank" class="btn-whatsapp">
+      Solicitar por WhatsApp
+    </a>
+  </div>
+
+</div>
+
+
+
+
+        
       </div>
 
     </div>
@@ -380,14 +415,6 @@
 
   </div>
 </section>
-
-<script>
-function showMessage() {
-  setTimeout(function() {
-    document.getElementById("success-message").style.display = "block";
-  }, 800);
-}
-</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -498,6 +525,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
 </body>
 </html>
+
 
 
 
