@@ -385,9 +385,51 @@ function showMessage() {
     document.getElementById("success-message").style.display = "block";
   }, 800);
 }
-</script>
+<script>
 
-  <script>
+const serviceSelect = document.getElementById("service");
+const extraOptions = document.getElementById("extraOptions");
+const clientTypeGroup = document.getElementById("clientType").parentElement;
+const firstTimeGroup = document.getElementById("firstTime").parentElement;
+const incomeGroup = document.getElementById("income").parentElement;
+
+serviceSelect.addEventListener("change", toggleFields);
+
+function toggleFields() {
+  let service = serviceSelect.value;
+
+  // Mostrar todo por defecto
+  clientTypeGroup.style.display = "block";
+  firstTimeGroup.style.display = "block";
+  incomeGroup.style.display = "block";
+
+  if(service === "ruc") {
+    clientTypeGroup.style.display = "none";
+    firstTimeGroup.style.display = "none";
+    incomeGroup.style.display = "none";
+  }
+
+  if(service === "aviso") {
+    firstTimeGroup.style.display = "none";
+    incomeGroup.style.display = "none";
+  }
+
+  if(service === "empresa") {
+    firstTimeGroup.style.display = "none";
+    incomeGroup.style.display = "none";
+  }
+
+  if(service === "contabilidad") {
+    firstTimeGroup.style.display = "none";
+    incomeGroup.style.display = "none";
+  }
+
+  if(service === "legal") {
+    firstTimeGroup.style.display = "none";
+    incomeGroup.style.display = "none";
+  }
+}
+
 function calculateQuote() {
   let service = document.getElementById("service").value;
   let clientType = document.getElementById("clientType").value;
@@ -409,6 +451,7 @@ function calculateQuote() {
 
   if(service === "empresa") {
     total = 650;
+    if(clientType === "juridica") total += 150;
   }
 
   if(service === "aviso") {
@@ -417,6 +460,7 @@ function calculateQuote() {
 
   if(service === "contabilidad") {
     total = 200;
+    if(clientType === "juridica") total += 100;
   }
 
   if(service === "legal") {
@@ -425,10 +469,15 @@ function calculateQuote() {
 
   document.getElementById("result").innerText = "$" + total.toFixed(2);
 }
+
+// Ejecutar al cargar la página
+toggleFields();
+
 </script>
   
 </body>
 </html>
+
 
 
 
