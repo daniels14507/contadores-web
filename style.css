@@ -522,11 +522,6 @@ select, input {
   background: #1ebe5d;
 }
 
-.footer-quote select {
-  max-height: 45px;
-  overflow-y: auto;
-}
-
 /*************************************************************************************************************************/
 
 @media (max-width: 768px) {
@@ -534,6 +529,7 @@ select, input {
     font-size: 14px;
   }
 }
+
 
 
 
