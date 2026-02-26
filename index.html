@@ -298,45 +298,64 @@
       <!-- FORMULARIO -->
       <div class="footer-column">
         
-<h3>Cotización Rápida</h3>
+<h3>Cotización Profesional</h3>
 
 <div class="footer-quote">
 
   <div class="form-group">
     <label>Servicio</label>
     <select id="service">
-      <option value="renta">Declaración de Renta</option>
-      <option value="ruc">Inscripción de RUC</option>
-      <option value="empresa">Constitución de Empresa</option>
-      <option value="aviso">Aviso de Operación</option>
-      <option value="contabilidad">Contabilidad Mensual</option>
-      <option value="legal">Asesoría Legal Corporativa</option>
+      <optgroup label="Trámites DGI">
+        <option value="renta">Declaración de Renta</option>
+        <option value="ruc_pn">Inscripción RUC - Persona Natural</option>
+        <option value="ruc_pj">Inscripción RUC - Persona Jurídica</option>
+        <option value="actualizacion_pn">Actualización RUC - Natural</option>
+        <option value="actualizacion_pj">Actualización RUC - Jurídica</option>
+        <option value="nit_pn">Solicitud NIT - Natural</option>
+        <option value="nit_pj">Solicitud NIT - Jurídica</option>
+        <option value="paz_salvo">Paz y Salvo DGI</option>
+      </optgroup>
+
+      <optgroup label="Aviso de Operación">
+        <option value="aviso_pn">Aviso Operación - Persona Natural</option>
+        <option value="aviso_pj">Aviso Operación - Persona Jurídica</option>
+        <option value="aviso_pj_ext">Aviso Operación - Jurídica Extranjera</option>
+      </optgroup>
+
+      <optgroup label="Municipio / CSS">
+        <option value="municipio_pn">Inscripción Negocio PN</option>
+        <option value="municipio_pj">Inscripción Negocio PJ</option>
+        <option value="css_patrono">Inscripción Patrono CSS</option>
+      </optgroup>
+
+      <optgroup label="Organización Contable">
+        <option value="contabilidad">Registros Contables</option>
+        <option value="sistema">Instalación Sistema Contable</option>
+        <option value="revision">Revisión de Contabilidad</option>
+      </optgroup>
+
+      <optgroup label="Certificaciones">
+        <option value="cert_ing_pn">Certificación Ingresos PN</option>
+        <option value="cert_ing_pj">Certificación Ingresos PJ</option>
+        <option value="cert_inventario">Certificación Inventarios</option>
+      </optgroup>
+
+      <optgroup label="Servicios Profesionales">
+        <option value="asesoria">Asesoría y Consultoría</option>
+        <option value="auditoria_dgi">Asistencia Auditoría DGI</option>
+        <option value="auditoria_tributaria">Auditoría Cumplimiento Tributario</option>
+        <option value="hora">Servicios Especializados (por hora)</option>
+      </optgroup>
     </select>
   </div>
 
-  <div class="form-group">
-    <label>Tipo de Cliente</label>
-    <select id="clientType">
-      <option value="natural">Persona Natural</option>
-      <option value="juridica">Persona Jurídica</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label>¿Es primera vez?</label>
-    <select id="firstTime">
-      <option value="no">Recurrente</option>
-      <option value="si">Primera vez</option>
-    </select>
-  </div>
-
-  <div class="form-group">
+  <div class="form-group" id="incomeGroup" style="display:none;">
     <label>Ingresos Anuales ($)</label>
     <input type="number" id="income" placeholder="Ej: 15000">
   </div>
 
   <div class="result-box">
-    <h4>Cotización</h4>
+    <h4>Cotización Aproximada</h4>
     <p id="result">$0.00</p>
     <a id="whatsappBtn" target="_blank" class="btn-whatsapp">
       Solicitar por WhatsApp
@@ -361,114 +380,81 @@
 </section>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+const servicePrices = {
+  ruc_pn: 50,
+  ruc_pj: 150,
+  actualizacion_pn: 25,
+  actualizacion_pj: 150,
+  nit_pn: 25,
+  nit_pj: 75,
+  paz_salvo: 20,
 
-  const serviceSelect = document.getElementById("service");
-  const clientType = document.getElementById("clientType");
-  const firstTime = document.getElementById("firstTime");
-  const income = document.getElementById("income");
+  aviso_pn: 25,
+  aviso_pj: 100,
+  aviso_pj_ext: 150,
 
-  const clientTypeGroup = clientType.parentElement;
-  const firstTimeGroup = firstTime.parentElement;
-  const incomeGroup = income.parentElement;
+  municipio_pn: 100,
+  municipio_pj: 250,
+  css_patrono: 250,
 
-  const resultElement = document.getElementById("result");
-  const whatsappBtn = document.getElementById("whatsappBtn");
+  contabilidad: 250,
+  sistema: 350,
+  revision: 150,
 
-  const phoneNumber = "50766557784";
+  cert_ing_pn: 125,
+  cert_ing_pj: 225,
+  cert_inventario: 350,
 
-  function toggleFields() {
-    let service = serviceSelect.value;
+  asesoria: 100,
+  auditoria_dgi: 150,
+  auditoria_tributaria: 400,
+  hora: 100
+};
 
-    clientTypeGroup.style.display = "block";
-    firstTimeGroup.style.display = "block";
+const serviceSelect = document.getElementById("service");
+const incomeInput = document.getElementById("income");
+const incomeGroup = document.getElementById("incomeGroup");
+const result = document.getElementById("result");
+const whatsappBtn = document.getElementById("whatsappBtn");
+
+function calculatePrice() {
+  let selectedService = serviceSelect.value;
+  let basePrice = servicePrices[selectedService] || 0;
+  let finalPrice = basePrice;
+
+  // Mostrar ingresos solo en declaración de renta
+  if (selectedService === "renta") {
     incomeGroup.style.display = "block";
+    let income = parseFloat(incomeInput.value) || 0;
 
-    if(service === "ruc") {
-      clientTypeGroup.style.display = "none";
-      firstTimeGroup.style.display = "none";
-      incomeGroup.style.display = "none";
-    }
-
-    if(service === "aviso" || service === "empresa" || service === "contabilidad" || service === "legal") {
-      firstTimeGroup.style.display = "none";
-      incomeGroup.style.display = "none";
-    }
+    if (income <= 11000) finalPrice = 100;
+    else if (income <= 50000) finalPrice = 150;
+    else finalPrice = 200;
+  } else {
+    incomeGroup.style.display = "none";
+    incomeInput.value = "";
   }
 
-  function calculateQuote() {
-    let service = serviceSelect.value;
-    let type = clientType.value;
-    let first = firstTime.value;
-    let annualIncome = parseFloat(income.value) || 0;
+  result.textContent = "$" + finalPrice.toFixed(2);
 
-    let total = 0;
-    let serviceName = "";
+  result.classList.remove("active");
+  setTimeout(() => {
+    result.classList.add("active");
+  }, 100);
 
-    if(service === "renta") {
-      serviceName = "Declaración de Renta";
-      total = 120;
-      if(type === "juridica") total += 80;
-      if(first === "si") total += 30;
-      if(annualIncome > 50000) total += 50;
-    }
+  let message = `Hola, quiero el servicio: ${serviceSelect.options[serviceSelect.selectedIndex].text}. Cotización aproximada: $${finalPrice}`;
+  whatsappBtn.href = `https://wa.me/50760000000?text=${encodeURIComponent(message)}`;
+}
 
-    if(service === "ruc") {
-      serviceName = "Inscripción de RUC";
-      total = 90;
-    }
+serviceSelect.addEventListener("change", calculatePrice);
+incomeInput.addEventListener("input", calculatePrice);
 
-    if(service === "empresa") {
-      serviceName = "Constitución de Empresa";
-      total = 650;
-      if(type === "juridica") total += 150;
-    }
-
-    if(service === "aviso") {
-      serviceName = "Aviso de Operación";
-      total = 150;
-    }
-
-    if(service === "contabilidad") {
-      serviceName = "Contabilidad Mensual";
-      total = 200;
-      if(type === "juridica") total += 100;
-    }
-
-    if(service === "legal") {
-      serviceName = "Asesoría Legal Corporativa";
-      total = 180;
-    }
-
-    resultElement.classList.remove("active");
-
-    setTimeout(() => {
-      resultElement.innerText = "$" + total.toFixed(2);
-      resultElement.classList.add("active");
-    }, 150);
-
-    let message = `Hola, quiero solicitar el servicio de ${serviceName}. La cotización aproximada es $${total.toFixed(2)}.`;
-    let url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    whatsappBtn.href = url;
-  }
-
-  serviceSelect.addEventListener("change", () => {
-    toggleFields();
-    calculateQuote();
-  });
-
-  clientType.addEventListener("change", calculateQuote);
-  firstTime.addEventListener("change", calculateQuote);
-  income.addEventListener("input", calculateQuote);
-
-  toggleFields();
-  calculateQuote();
-
-});
+calculatePrice();
 </script>
   
 </body>
 </html>
+
 
 
 
