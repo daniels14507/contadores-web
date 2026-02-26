@@ -474,36 +474,52 @@ select, input {
   color: #ccc;
 }
 
-.contact-form input,
-.contact-form textarea {
+/* COTIZACIÓN EN FOOTER */
+
+.footer-quote select,
+.footer-quote input {
   width: 100%;
   padding: 10px;
   margin-bottom: 12px;
-  border: none;
   border-radius: 5px;
+  border: none;
 }
 
-.contact-form button {
-  width: 100%;
-  padding: 10px;
-  background: #ac840c;
-  border: none;
-  color: white;
+.footer-quote .result-box {
+  background: #0f172a;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.footer-quote #result {
+  font-size: 22px;
   font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
+  margin: 10px 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+.footer-quote #result.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer-quote .btn-whatsapp {
+  display: inline-block;
+  padding: 8px 14px;
+  background: #25D366;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
   transition: 0.3s;
 }
 
-.contact-form button:hover {
+.footer-quote .btn-whatsapp:hover {
   background: #1ebe5d;
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 60px;
-  font-size: 14px;
-  color: #aaa;
 }
 
 /*************************************************************************************************************************/
@@ -513,6 +529,7 @@ select, input {
     font-size: 14px;
   }
 }
+
 
 
 
