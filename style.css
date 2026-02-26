@@ -475,7 +475,7 @@ select, input {
 }
 
 .footer-column:last-child {
-  margin-top: -90px;
+  margin-top: -290px;
 }
 /* COTIZACIÓN EN FOOTER */
 
@@ -534,6 +534,7 @@ select, input {
     font-size: 14px;
   }
 }
+
 
 
 
