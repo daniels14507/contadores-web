@@ -474,6 +474,9 @@ select, input {
   color: #ccc;
 }
 
+.footer-column:last-child {
+  margin-top: -40px;
+}
 /* COTIZACIÓN EN FOOTER */
 
 .footer-quote select,
@@ -522,6 +525,8 @@ select, input {
   background: #1ebe5d;
 }
 
+
+
 /*************************************************************************************************************************/
 
 @media (max-width: 768px) {
@@ -529,6 +534,7 @@ select, input {
     font-size: 14px;
   }
 }
+
 
 
 
