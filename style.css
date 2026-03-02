@@ -277,105 +277,6 @@ section {
   color: #0d3b66;
 }
 
-/*************************************************************************************************************************/
-/* ===== SECCIÓN COTIZACIÓN ===== */
-
-.quote-section {
-  padding: 100px 20px;
-  background: #f9fafc;
-}
-
-.quote-container {
-  max-width: 700px;
-  margin: auto;
-  text-align: center;
-}
-
-.quote-container h2 {
-  font-size: 38px;
-  margin-bottom: 10px;
-}
-
-.quote-container p {
-  margin-bottom: 40px;
-  color: #555;
-}
-
-#quoteForm {
-  background: white;
-  padding: 40px;
-  border-radius: 14px;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.08);
-}
-
-.form-group {
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-select, input {
-  width: 100%;
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 15px;
-}
-
-.result-box {
-  margin-top: 30px;
-  padding: 25px;
-  background: #0f172a;
-  color: white;
-  border-radius: 12px;
-  transition: 0.3s ease;
-}
-
-#result {
-  font-size: 32px;
-  font-weight: bold;
-  margin: 15px 0;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s ease;
-}
-
-#result.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.btn-whatsapp {
-  display: inline-block;
-  padding: 12px 20px;
-  background: #25D366;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.btn-whatsapp:hover {
-  background: #1ebe5d;
-}
-
-/* Responsive */
-
-@media (max-width: 768px) {
-  #quoteForm {
-    padding: 25px;
-  }
-
-  .quote-container h2 {
-    font-size: 28px;
-  }
-}
 
 /*************************************************************************************************************************/
 
@@ -494,6 +395,7 @@ select, input {
     font-size: 14px;
   }
 }
+
 
 
 
