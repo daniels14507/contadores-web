@@ -238,7 +238,7 @@
 
   <div class="form-group">
     <label>Servicio</label>
-    <select id="service" size="3">
+    <select id="service">
       <optgroup label="Trámites DGI">
         <option value="renta">Declaración de Renta</option>
         <option value="ruc_pn">Inscripción RUC - Persona Natural</option>
@@ -259,7 +259,6 @@
 
       <optgroup label="Organización Contable">
         <option value="contabilidad">Registros Contables</option>
-        <option value="sistema">Instalación Sistema Contable</option>
         <option value="revision">Revisión de Contabilidad</option>
       </optgroup>
 
@@ -273,10 +272,7 @@
       </optgroup>
 
       <optgroup label="Servicios Profesionales">
-        <option value="asesoria">Asesoría y Consultoría</option>
-        <option value="auditoria_dgi">Asistencia Auditoría DGI</option>
-        <option value="auditoria_tributaria">Auditoría Cumplimiento Tributario</option>
-        <option value="hora">Servicios Especializados (por hora)</option>
+        <option value="asesoria">Asesoría y Consultoría por hora</option>
       </optgroup>
     </select>
   </div>
@@ -325,9 +321,8 @@ const servicePrices = {
   municipio_pj: 250,
   css_patrono: 250,
 
-  contabilidad: 250,
-  sistema: 350,
-  revision: 150,
+  contabilidad: 500,
+  revision: 250,
 
   pre_pac_soc: 1200,
    pre_avi_ops: 150,
@@ -336,9 +331,6 @@ const servicePrices = {
    pre_mod_soc: 150,
 
   asesoria: 100,
-  auditoria_dgi: 150,
-  auditoria_tributaria: 400,
-  hora: 100
 };
 
 const serviceSelect = document.getElementById("service");
@@ -384,6 +376,7 @@ calculatePrice();
   
 </body>
 </html>
+
 
 
 
