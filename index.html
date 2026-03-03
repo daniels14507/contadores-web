@@ -268,10 +268,13 @@
         <option value="revision">Revisión de Contabilidad</option>
       </optgroup>
 
-      <optgroup label="Certificaciones">
-        <option value="cert_ing_pn">Certificación Ingresos PN</option>
-        <option value="cert_ing_pj">Certificación Ingresos PJ</option>
-        <option value="cert_inventario">Certificación Inventarios</option>
+      <optgroup label="Presupuesto de servicios corporativos">
+        <option value="pre_pac_soc">Pacto social</option>
+        <option value="pre_avi_ops">Aviso de operaciones sin licencia especiales</option>
+        <option value="pre_avi_opc">Aviso de operaciones con licencia especiales</option>
+        <option value="pre_obt_ruc">Obtención de RUC</option>
+        <option value="pre_mod_soc">Modificación societariamente</option>
+
       </optgroup>
 
       <optgroup label="Servicios Profesionales">
@@ -335,9 +338,11 @@ const servicePrices = {
   sistema: 350,
   revision: 150,
 
-  cert_ing_pn: 125,
-  cert_ing_pj: 225,
-  cert_inventario: 350,
+  pre_pac_soc: 1200,
+   pre_avi_ops: 150,
+   pre_avi_opc: 500,
+   pre_obt_ruc: 125,
+   pre_mod_soc: 150,
 
   asesoria: 100,
   auditoria_dgi: 150,
@@ -388,6 +393,7 @@ calculatePrice();
   
 </body>
 </html>
+
 
 
 
